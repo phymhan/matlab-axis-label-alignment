@@ -26,9 +26,11 @@ xlabel('This is an x label', 'fontsize', 16, 'fontweight', 'bold', 'color', [1 0
 ylabel('This is a y label', 'fontsize', 16, 'fontweight', 'bold', 'color', [0 0 0])
 zlabel('This is a z label', 'fontsize', 16, 'fontweight', 'bold', 'color', [0 0 1])
 
+% Add the following after you plot your figures
 h = rotate3d;
 set(h, 'ActionPreCallback', 'set(gcf,''windowbuttonmotionfcn'',@align_axislabel)')
 set(h, 'ActionPostCallback', 'set(gcf,''windowbuttonmotionfcn'','''')')
+set(gcf, 'ResizeFcn', @align_axislabel)
 align_axislabel([], gca)
 axislabel_translation_slider;
 
